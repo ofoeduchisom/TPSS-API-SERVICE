@@ -12,4 +12,8 @@ app.use('/', paymentsRoutes);
 app.get('/', (req, res) =>
     res.send('Hello from Homepage. '));
 
-app.listen(PORT, () => console.log(`Server Running on port: http://localhost:${PORT}`))
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
